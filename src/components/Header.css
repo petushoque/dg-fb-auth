@@ -1,0 +1,30 @@
+.header {    
+    max-width: 1280px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 60px 20px 60px 20px;
+    background-image: url(../images/header_image.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.header__title {
+    margin: 0;
+    text-align: right;
+    color: white;    
+    font-size: 30px;
+    max-width: 200px;    
+    margin-left: auto;
+}
+
+@media screen and (max-width: 767px) {
+
+    .header {
+        padding: 25px 25px 25px 25px;
+    }
+
+    .header__title {
+        font-size: 18px;
+        max-width: 120px;
+    }
+}
