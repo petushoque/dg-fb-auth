@@ -24,9 +24,14 @@ function App() {
       email: user.email,
       picture: user.picture.data.url
     })
+    localStorage.setItem('userID', user.userID)
+    localStorage.setItem('userName', user.name)
+    localStorage.setItem('userEmail', user.email)
+    localStorage.setItem('userAvatar', user.picture.data.url)
   }
 
   console.log(userInfo)
+  console.log(localStorage)
 
   return (
     <div className='page'>
