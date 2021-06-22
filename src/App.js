@@ -8,13 +8,29 @@ import Footer from './components/Footer'
 
 function App() {
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userInfo, setUserInfo] = useState({
+    id: '',
+    name: '',
+    email: '',
+    picture: ''
+  })
+
   const handleUserInfo = (user) => {
-    console.log(user)
+    setIsLoggedIn(true)
+    setUserInfo({
+      id: user.userID,
+      name: user.name,
+      email: user.email,
+      picture: user.picture.data.url
+    })
   }
+
+  console.log(userInfo)
 
   return (
     <div className='page'>
-      <CurrentUserContext.Provider> 
+      <CurrentUserContext.Provider value={userInfo}> 
         <Header />
         <Facebook handleUserInfo={handleUserInfo}/>
         <Footer />
