@@ -4,6 +4,7 @@ import './App.css';
 import CurrentUserContext from './contexts/CurrentUserContext';
 import Facebook from './components/Facebook';
 import Header from './components/Header';
+import Main from './components/Main';
 import Footer from './components/Footer'
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <CurrentUserContext.Provider value={userInfo}> 
         <Header />
         <Facebook handleUserInfo={handleUserInfo}/>
+        <Main />
         <Footer />
       </CurrentUserContext.Provider> 
     </div>
