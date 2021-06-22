@@ -8,11 +8,15 @@ import Footer from './components/Footer'
 
 function App() {
 
+  const handleUserInfo = (user) => {
+    console.log(user)
+  }
+
   return (
     <div className='page'>
       <CurrentUserContext.Provider> 
         <Header />
-        <Facebook />
+        <Facebook handleUserInfo={handleUserInfo}/>
         <Footer />
       </CurrentUserContext.Provider> 
     </div>

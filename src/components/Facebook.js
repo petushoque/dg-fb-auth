@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
 
 export default class Facebook extends Component {
+  
+  constructor (props) {
+    super(props)
+    this.handleUserInfo = props.handleUserInfo
+  }
+
   state = {
     isLoggedIn: false,
     userID: "",
@@ -20,6 +26,8 @@ export default class Facebook extends Component {
       email: response.email,
       picture: response.picture.data.url
     });
+
+    this.handleUserInfo(response)
   };
 
   componentClicked = () => console.log("clicked");
