@@ -10,9 +10,11 @@ function App() {
 
   return (
     <div className='page'>
-      <Header />
-      <Facebook />
-      <Footer />
+      <CurrentUserContext.Provider> 
+        <Header />
+        <Facebook />
+        <Footer />
+      </CurrentUserContext.Provider> 
     </div>
   );
 }
