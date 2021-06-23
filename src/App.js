@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 import CurrentUserContext from './contexts/CurrentUserContext';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Main from './components/Main';
+import Profile from './components/Profile';
 import Footer from './components/Footer'
 
 function App() {
@@ -39,8 +41,15 @@ function App() {
     <div className='page'>
       <CurrentUserContext.Provider value={userInfo}> 
         <Header />
-        <Navigation handleUserInfo={handleUserInfo}/>
-        <Main isLoggedIn={isLoggedIn}/>
+        <Navigation isLoggedIn={isLoggedIn} handleUserInfo={handleUserInfo}/>
+        <Switch>
+          <Route exact path='/'>
+            <Main isLoggedIn={isLoggedIn}/>
+          </Route>
+          <Route path='/profile'>
+            <Profile />
+          </Route>
+        </Switch>
         <Footer />
       </CurrentUserContext.Provider> 
     </div>
