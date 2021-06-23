@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
+import './Facebook.css'
 
 export default class Facebook extends Component {
   
@@ -37,28 +38,22 @@ export default class Facebook extends Component {
 
     if (this.state.isLoggedIn) {
       fbContent = (
-        <div
-          style={{
-            width: "400px",
-            margin: "auto",
-            background: "#f4f4f4",
-            padding: "20px"
-          }}
-        >
-          <img src={this.state.picture} alt={this.state.name} />
-          <h2>Welcome {this.state.name}</h2>
-          Email: {this.state.email}
+        <div className='facebook facebook__login'>
+          <h2 className='facebook__name'>{this.state.name}</h2>
+          <img className='facebook__picture' src={this.state.picture} alt={this.state.name} />
         </div>
       );
     } else {
       fbContent = (
-        <FacebookLogin
-          appId="342310250698628"
-          autoLoad={true}
-          fields="name,email,picture"
-          onClick={this.componentClicked}
-          callback={this.responseFacebook}
-        />
+        <div className='facebook facebook__logout'>
+          <FacebookLogin
+            appId="342310250698628"
+            autoLoad={true}
+            fields="name,email,picture"
+            onClick={this.componentClicked}
+            callback={this.responseFacebook}
+          />
+        </div>
       );
     }
 

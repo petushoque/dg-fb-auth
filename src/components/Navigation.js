@@ -10,6 +10,8 @@ export default function Navigation (props) {
 
     return (
         <nav className='navigation'>
+            <div>Меню 1</div>
+            <div>Меню 2</div>
             <Facebook handleUserInfo={props.handleUserInfo}/>
         </nav>
     )
