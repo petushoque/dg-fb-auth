@@ -34,13 +34,18 @@ export default class Facebook extends Component {
   componentClicked = () => console.log("clicked");
 
   render() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn')
+    const name = localStorage.getItem('userName')
+    const picture = localStorage.getItem('userAvatar')
+    console.log(isLoggedIn)
     let fbContent;
 
-    if (this.state.isLoggedIn) {
+
+    if (isLoggedIn) {
       fbContent = (
-        <div className='facebook facebook__login'>
-          <h2 className='facebook__name'>{this.state.name}</h2>
-          <img className='facebook__picture' src={this.state.picture} alt={this.state.name} />
+        <div className='facebook facebook__login'>          
+          <h2>{name}</h2>
+          <img className='facebook__picture' src={picture} alt={name} />
         </div>
       );
     } else {
@@ -60,3 +65,9 @@ export default class Facebook extends Component {
     return <div>{fbContent}</div>;
   }
 }
+
+/*
+    //if (this.state.isLoggedIn)
+<h2 className='facebook__name'>{this.state.name}</h2>
+<img className='facebook__picture' src={this.state.picture} alt={this.state.name} />
+*/
