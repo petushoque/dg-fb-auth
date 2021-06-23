@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import './App.css';
 import CurrentUserContext from './contexts/CurrentUserContext';
-import Facebook from './components/Facebook';
+import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer'
@@ -39,7 +39,7 @@ function App() {
     <div className='page'>
       <CurrentUserContext.Provider value={userInfo}> 
         <Header />
-        <Facebook handleUserInfo={handleUserInfo}/>
+        <Navigation handleUserInfo={handleUserInfo}/>
         <Main isLoggedIn={isLoggedIn}/>
         <Footer />
       </CurrentUserContext.Provider> 
