@@ -29,6 +29,7 @@ function App() {
     localStorage.setItem('userName', user.name)
     localStorage.setItem('userEmail', user.email)
     localStorage.setItem('userAvatar', user.picture.data.url)
+    localStorage.setItem('isLoggedIn', true)
   }
 
   console.log(userInfo)
@@ -39,7 +40,7 @@ function App() {
       <CurrentUserContext.Provider value={userInfo}> 
         <Header />
         <Facebook handleUserInfo={handleUserInfo}/>
-        <Main />
+        <Main isLoggedIn={isLoggedIn}/>
         <Footer />
       </CurrentUserContext.Provider> 
     </div>

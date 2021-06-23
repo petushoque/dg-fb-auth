@@ -3,13 +3,17 @@ import { useContext } from 'react'
 import CurrentUserContext from '../contexts/CurrentUserContext';
 import './Main.css'
 
-export default function Main () {
+export default function Main (props) {
 
     const user = useContext(CurrentUserContext)
 
     return (
-        <div>
+        props.isLoggedIn ?
+        (<div className='main'>
         {user ? user.name : null}
-        </div>
+        <h1>Test</h1>
+        </div>) :
+        null
+        
     )
 }
