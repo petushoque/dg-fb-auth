@@ -17,6 +17,14 @@
     margin-left: auto;
 }
 
+.header__title:hover {
+    opacity: 0.6;
+}
+
+.header__link {
+    text-decoration: none;
+}
+
 @media screen and (max-width: 767px) {
 
     .header {

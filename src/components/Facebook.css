@@ -21,6 +21,10 @@
     border: 2px solid black;
 }
 
+.facebook__picture:hover {
+    opacity: 0.6;
+}
+
 .facebook__logout button {
     width: 100%;
     height: 150px;
