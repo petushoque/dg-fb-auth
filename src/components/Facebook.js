@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
+import { Link, useLocation } from 'react-router-dom'
 import './Facebook.css'
 
 export default class Facebook extends Component {
@@ -34,18 +35,15 @@ export default class Facebook extends Component {
   componentClicked = () => console.log("clicked");
 
   render() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn')
-    const name = localStorage.getItem('userName')
-    const picture = localStorage.getItem('userAvatar')
-    console.log(isLoggedIn)
     let fbContent;
 
-
-    if (isLoggedIn) {
+    if (this.state.isLoggedIn) {
       fbContent = (
         <div className='facebook facebook__login'>          
-          <h2>{name}</h2>
-          <img className='facebook__picture' src={picture} alt={name} />
+          <h2 className='facebook__name'>{this.state.name}</h2>
+          <Link to='/profile'>
+            <img className='facebook__picture' src={this.state.picture} alt={this.state.name} />
+          </Link>
         </div>
       );
     } else {
@@ -67,7 +65,5 @@ export default class Facebook extends Component {
 }
 
 /*
-    //if (this.state.isLoggedIn)
-<h2 className='facebook__name'>{this.state.name}</h2>
-<img className='facebook__picture' src={this.state.picture} alt={this.state.name} />
+
 */
