@@ -11,16 +11,14 @@
     border-radius: 0 0 5px 5px;
 }
 
-
-/*
-.facebook__login {
+.navigation__profile {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 50px;
 }
 
-.facebook__name {
+.navigation__name {
     margin: 0;
     padding: 0;
     width: 100px;
@@ -29,14 +27,16 @@
     font-size: 16px;
 }
 
-.facebook__picture {
+.navigation__picture {
     border-radius: 50%;
     height: 46px;
     width: 46px;
     border: 2px solid black;
 }
 
-.facebook__picture:hover {
+.navigation__picture:hover {
     opacity: 0.6;
 }
+/*
+
 */
