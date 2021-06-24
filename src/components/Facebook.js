@@ -12,13 +12,9 @@ export default function Facebook (props) {
 
   const componentClicked = () => console.log("clicked");
 
-    let fbContent;
-
-    if (props.isLoggedIn) {
-      <Redirect to='/'/>
-    } else {
-      fbContent = (
-        <div className='facebook facebook__logout'>
+    return (
+      props.isLoggedIn ? <Redirect to='/'/> :
+      <div className='facebook facebook__logout'>
           <FacebookLogin
             appId="342310250698628"
             autoLoad={true}
@@ -27,10 +23,7 @@ export default function Facebook (props) {
             callback={responseFacebook}
           />
         </div>
-      );
-    }
-
-    return <div>{fbContent}</div>;
+    )
 }
 
 
