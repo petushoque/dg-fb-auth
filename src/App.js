@@ -45,13 +45,13 @@ function App() {
         <Navigation isLoggedIn={isLoggedIn}/>
         <Switch>
           <Route exact path='/'>
-            <Main isLoggedIn={isLoggedIn}/>
+            {isLoggedIn ? <Main isLoggedIn={isLoggedIn}/> : <Redirect to='/fb-auth'/>}            
           </Route>
           <Route path='/profile'>
             <Profile />
           </Route>
           <Route path='/fb-auth'>            
-            <Facebook handleUserInfo={handleUserInfo}/>
+            <Facebook isLoggedIn={isLoggedIn} handleUserInfo={handleUserInfo}/>
           </Route>
           <Route>
             {isLoggedIn ? <Redirect to='/'/> : <Redirect to='/fb-auth'/>}

@@ -1,13 +1,52 @@
 import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
-import { Link, useLocation } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import './Facebook.css'
 
-export default class Facebook extends Component {
+export default function Facebook (props) {
   
-  constructor (props) {
+  const responseFacebook = response => {
+    console.log(response);
+    props.handleUserInfo(response)
+  };
+
+  const componentClicked = () => console.log("clicked");
+
+    let fbContent;
+
+    if (props.isLoggedIn) {
+      <Redirect to='/'/>
+    } else {
+      fbContent = (
+        <div className='facebook facebook__logout'>
+          <FacebookLogin
+            appId="342310250698628"
+            autoLoad={true}
+            fields="name,email,picture"
+            onClick={() => componentClicked()}
+            callback={responseFacebook}
+          />
+        </div>
+      );
+    }
+
+    return <div>{fbContent}</div>;
+}
+
+
+      /*fbContent = (
+        <div className='facebook facebook__login'>          
+          <h2 className='facebook__name'>{this.state.name}</h2>
+          <Link to='/profile'>
+            <img className='facebook__picture' src={this.state.picture} alt={this.state.name} />
+          </Link>
+        </div>
+
+
+ constructor (props) {
     super(props)
     this.handleUserInfo = props.handleUserInfo
+    this.isLoggedIn = props.isLoggedIn
   }
 
   state = {
@@ -37,15 +76,8 @@ export default class Facebook extends Component {
   render() {
     let fbContent;
 
-    if (this.state.isLoggedIn) {
-      fbContent = (
-        <div className='facebook facebook__login'>          
-          <h2 className='facebook__name'>{this.state.name}</h2>
-          <Link to='/profile'>
-            <img className='facebook__picture' src={this.state.picture} alt={this.state.name} />
-          </Link>
-        </div>
-      );
+    if (this.isLoggedIn) {
+      <Redirect to='/'/>
     } else {
       fbContent = (
         <div className='facebook facebook__logout'>
@@ -62,8 +94,6 @@ export default class Facebook extends Component {
 
     return <div>{fbContent}</div>;
   }
-}
 
-/*
 
-*/
+      );*/
