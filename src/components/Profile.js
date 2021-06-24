@@ -9,12 +9,17 @@ export default function Profile (props) {
 
     return (
         <div className='profile'>
-            <h2>
-                {user.name}
-            </h2>
-            <h2>
-                {user.email}
-            </h2>
+            <div className='profile__card'>
+                <h2>
+                    ID: {user.id}
+                </h2>
+                <h2>
+                    Name: {user.name}
+                </h2>
+                <h2>
+                    E-mail: {user.email}
+                </h2>
+            </div>
         </div>
     )
 }

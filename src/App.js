@@ -6,6 +6,7 @@ import CurrentUserContext from './contexts/CurrentUserContext';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Main from './components/Main';
+import Facebook from './components/Facebook'
 import Profile from './components/Profile';
 import Footer from './components/Footer'
 
@@ -41,13 +42,19 @@ function App() {
     <div className='page'>
       <CurrentUserContext.Provider value={userInfo}> 
         <Header />
-        <Navigation isLoggedIn={isLoggedIn} handleUserInfo={handleUserInfo}/>
+        <Navigation isLoggedIn={isLoggedIn}/>
         <Switch>
           <Route exact path='/'>
             <Main isLoggedIn={isLoggedIn}/>
           </Route>
           <Route path='/profile'>
             <Profile />
+          </Route>
+          <Route path='/fb-auth'>            
+            <Facebook handleUserInfo={handleUserInfo}/>
+          </Route>
+          <Route>
+            {isLoggedIn ? <Redirect to='/'/> : <Redirect to='/fb-auth'/>}
           </Route>
         </Switch>
         <Footer />

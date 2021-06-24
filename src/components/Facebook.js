@@ -19,7 +19,7 @@ export default class Facebook extends Component {
   };
 
   responseFacebook = response => {
-    // console.log(response);
+    console.log(response);
 
     this.setState({
       isLoggedIn: true,
