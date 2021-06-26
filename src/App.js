@@ -28,11 +28,19 @@ function App() {
       email: user.email,
       picture: user.picture.data.url
     })
-    localStorage.setItem('userID', user.userID)
-    localStorage.setItem('userName', user.name)
-    localStorage.setItem('userEmail', user.email)
-    localStorage.setItem('userAvatar', user.picture.data.url)
-    localStorage.setItem('isLoggedIn', true)
+    setLocalStorage(user.userID, user.name, user.email, user.picture.data.url, true)    
+  }
+
+  const setLocalStorage = (id, name, email, avatar, login) => {
+    localStorage.setItem('userID', id)
+    localStorage.setItem('userName', name)
+    localStorage.setItem('userEmail', email)
+    localStorage.setItem('userAvatar', avatar)
+    localStorage.setItem('isLoggedIn', login)
+  }
+
+  const clearLocalStorage = () => {
+    setLocalStorage('', '', '', '', false)
   }
 
   console.log(userInfo)
